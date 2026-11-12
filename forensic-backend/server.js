@@ -14,7 +14,7 @@ app.use(express.json());
 const linuxCommands = {
   "run linux forensic capture": {
     type: "script",
-    command: "/home/ayush/forensic_scripts/capture.sh",
+    command: "/home/dell/forensic_scripts/capture.sh",
   },
 };
 
@@ -38,7 +38,7 @@ function runCommand(os, command, callback) {
   } else {
     // Linux via WSL (non-blocking)
     exec(
-      `"C:\\Windows\\System32\\wsl.exe" bash -lc "bash /home/ayush/forensic_scripts/capture.sh> /tmp/linux_forensic.log 2>&1"`,
+      `"C:\\Windows\\System32\\wsl.exe" bash -lc "bash /home/dell/forensic_scripts/capture.sh> /tmp/linux_forensic.log 2>&1"`,
       { timeout: 0 },
       () => {
         callback(
@@ -63,7 +63,10 @@ app.post("/api/chat", (req, res) => {
   }
 
   const text = message.toLowerCase().trim();
-
+   
+  console.log("Received:", text);
+  console.log("OS:", os);
+  
   /* ---------- NORMAL CHAT ---------- */
 
   if (text.includes("hello")) {
