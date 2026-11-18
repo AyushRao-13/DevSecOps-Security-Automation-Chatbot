@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Forensic capture output (sensitive, never commit)
+forensics/
+*.evtx
+*.dmp
+*.raw
+*.hiv
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
